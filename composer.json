@@ -4,7 +4,9 @@
   "description": "Widgets",
   "license": ["GPL-3.0"],
   "keywords": ["widgets", "webchemistry"],
-  "autoload": ["src/"],
+  "autoload": {
+    "classmap": ["src/"]
+  },
   "authors": [
     {
       "name": "Antik",

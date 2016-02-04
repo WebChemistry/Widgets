@@ -1,0 +1,14 @@
+{
+  "name": "webchemistry/widgets",
+  "type": "library",
+  "description": "Widgets",
+  "license": ["GPL-3.0"],
+  "keywords": ["widgets", "webchemistry"],
+  "autoload": ["src/"],
+  "authors": [
+    {
+      "name": "Antik",
+      "email": "antik494@gmail.com"
+    }
+  ]
+}

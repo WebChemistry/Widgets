@@ -15,8 +15,17 @@
 		]
 	},
 	"require": {
-		"php": ">=7.1"
+		"php": ">=7.1",
+		"latte/latte": "^2.4 || ^3.0",
+		"nette/application": "^2.4 || ^3.0"
 	},
+	"require-dev": {
+		"phpstan/phpstan": "^0.7"
+	},
+	"config": {
+		"bin-dir": "bin"
+	},
+	"minimum-stability": "alpha",
 	"authors": [
 		{
 			"name": "Antik",

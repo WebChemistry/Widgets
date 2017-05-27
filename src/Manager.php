@@ -19,6 +19,8 @@ class Manager extends Container implements \ArrayAccess {
 	 * @param WidgetList $widgetList
 	 */
 	public function __construct(WidgetList $widgetList) {
+		parent::__construct();
+
 		$this->widgetList = $widgetList;
 	}
 
@@ -38,7 +40,7 @@ class Manager extends Container implements \ArrayAccess {
 	 * @param string|int $name
 	 * @return IComponent|NULL
 	 */
-	public function getComponent($name): ?IComponent {
+	public function getComponent($name, bool $throw = TRUE): ?IComponent {
 		$origName = $name;
 		if (($pos = strpos($name, self::NAME_SEPARATOR)) !== FALSE) {
 			$name = substr($name, 0, $pos);
@@ -48,7 +50,7 @@ class Manager extends Container implements \ArrayAccess {
 			$this->addComponent($this->widgetList->get($name), $name);
 		}
 
-		return parent::getComponent($origName, $need);
+		return parent::getComponent($origName, $throw);
 	}
 
 	/**

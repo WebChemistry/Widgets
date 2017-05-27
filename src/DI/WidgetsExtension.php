@@ -1,8 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace WebChemistry\Widgets\DI;
 
 use Nette\DI\CompilerExtension;
+use WebChemistry\Widgets\Factory;
+use WebChemistry\Widgets\Macro;
+use WebChemistry\Widgets\WidgetList;
 
 class WidgetsExtension extends CompilerExtension {
 
@@ -15,11 +20,11 @@ class WidgetsExtension extends CompilerExtension {
 		$builder = $this->getContainerBuilder();
 
 		$builder->addDefinition($this->prefix('widgetList'))
-			->setClass('WebChemistry\Widgets\WidgetList', [$this->getConfig()])
+			->setClass(WidgetList::class, [$this->getConfig()])
 			->setAutowired(FALSE);
 
 		$builder->addDefinition($this->prefix('factory'))
-			->setClass('WebChemistry\Widgets\Factory', [$this->prefix('@widgetList')]);
+			->setClass(Factory::class, [$this->prefix('@widgetList')]);
 	}
 
 	/**
@@ -31,7 +36,7 @@ class WidgetsExtension extends CompilerExtension {
 		$builder = $this->getContainerBuilder();
 
 		$builder->getDefinition('nette.latteFactory')
-			->addSetup('WebChemistry\Widgets\Macro::install(?->getCompiler())', ['@self']);
+			->addSetup(Macro::class . '::install(?->getCompiler())', ['@self']);
 	}
 
 }

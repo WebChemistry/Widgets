@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace WebChemistry\Widgets;
 
 class Factory {
@@ -14,7 +16,7 @@ class Factory {
 	/**
 	 * @return Manager
 	 */
-	public function create() {
+	public function create(): Manager {
 		return new Manager($this->widgetList);
 	}
 

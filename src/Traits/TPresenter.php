@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace WebChemistry\Widgets\Traits;
 
 use Nette\Application\UI\ITemplate;
@@ -16,21 +18,21 @@ trait TPresenter {
 	/**
 	 * @return Manager
 	 */
-	public function getWidgets() {
+	public function getWidgets(): Manager {
 		return $this->getComponent('widgets');
 	}
 
 	/**
 	 * @return Manager
 	 */
-	protected function createComponentWidgets() {
+	protected function createComponentWidgets(): Manager {
 		return $this->widgets;
 	}
 
 	/**
 	 * @return ITemplate
 	 */
-	protected function createTemplate($template = NULL) {
+	protected function createTemplate($template = NULL): ITemplate {
 		$template = $template ? : parent::createTemplate();
 		$template->widgets = $this->getWidgets();
 

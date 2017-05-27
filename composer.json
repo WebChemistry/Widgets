@@ -1,16 +1,26 @@
 {
-  "name": "webchemistry/widgets",
-  "type": "library",
-  "description": "Widgets",
-  "license": ["GPL-3.0"],
-  "keywords": ["widgets", "webchemistry"],
-  "autoload": {
-    "classmap": ["src/"]
-  },
-  "authors": [
-    {
-      "name": "Antik",
-      "email": "antik494@gmail.com"
-    }
-  ]
+	"name": "webchemistry/widgets",
+	"type": "library",
+	"description": "Widgets",
+	"license": [
+		"GPL-3.0"
+	],
+	"keywords": [
+		"widgets",
+		"webchemistry"
+	],
+	"autoload": {
+		"classmap": [
+			"src/"
+		]
+	},
+	"require": {
+		"php": ">=7.1"
+	},
+	"authors": [
+		{
+			"name": "Antik",
+			"email": "antik494@gmail.com"
+		}
+	]
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace WebChemistry\Widgets;
 
 use Nette\Application\UI\Multiplier;
@@ -18,18 +20,21 @@ class WidgetList {
 	}
 
 	/**
-	 * @param string $name
+	 * @param string|int $name
 	 * @return bool
 	 */
-	public function exists($name) {
+	public function exists($name): bool {
 		return isset($this->services[$name]);
 	}
 
 	/**
-	 * @param string $name
-	 * @return IComponent
+	 * @param string|int $name
+	 * @return IComponent|NULL
 	 */
-	public function get($name) {
+	public function get($name): ?IComponent {
+		if (!isset($this->services[$name])) {
+			return NULL;
+		}
 		if (is_object($this->services[$name])) {
 			return $this->services[$name];
 		}

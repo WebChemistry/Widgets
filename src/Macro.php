@@ -26,7 +26,7 @@ class Macro extends MacroSet {
 	 * @return string
 	 */
 	public function widget(MacroNode $macroNode, PhpWriter $writer): string {
-		return $writer->write('$_l->tmp = $widgets->getComponent(%node.word);if ($_l->tmp instanceof Nette\Application\UI\IRenderable) $_l->tmp->redrawControl(NULL, FALSE); $_l->tmp->render()');
+		return $writer->write('$_l->tmp = $this->global->widgets->getComponent(%node.word);if ($_l->tmp instanceof Nette\Application\UI\IRenderable) $_l->tmp->redrawControl(NULL, FALSE); $_l->tmp->render()');
 	}
 
 }

@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace WebChemistry\Widgets\Traits;
 
+use Latte\Engine;
 use Nette\Application\UI\ITemplate;
+use WebChemistry\Widgets\Factory;
 use WebChemistry\Widgets\Manager;
 
 /**
@@ -14,6 +16,10 @@ trait TPresenter {
 
 	/** @var Manager */
 	private $widgets;
+
+	public function injectWidgets(Factory $factory): void {
+		$this->widgets = $factory->create();
+	}
 
 	/**
 	 * @return Manager
@@ -34,7 +40,10 @@ trait TPresenter {
 	 */
 	protected function createTemplate($template = NULL): ITemplate {
 		$template = $template ? : parent::createTemplate();
-		$template->widgets = $this->getWidgets();
+
+		/** @var Engine $latte */
+		$latte = $template->getLatte();
+		$latte->addProvider('widgets', $this->getWidgets());
 
 		return $template;
 	}
